@@ -1,0 +1,17 @@
+{
+  "name": "local",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "author": "PCS <developers@pcs-publishing.com> (https://pcs-publishing.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.0"
+  }
+}
