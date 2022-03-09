@@ -44,6 +44,7 @@ RUN curl -s "https://awscli.amazonaws.com/awscli-exe-linux-$(uname -m).zip" -o "
 # [Optional] install more global node packages.
 RUN npm install -g \
   npm \
-  yarn
+  yarn \
+  lerna
 
 WORKDIR /workspace
