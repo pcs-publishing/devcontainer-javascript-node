@@ -1,4 +1,4 @@
-# `devcontainer-javascript-node`
+# `devcontainer-node`
 
 ## Description
 
