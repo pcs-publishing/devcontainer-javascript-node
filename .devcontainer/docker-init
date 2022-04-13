@@ -2,6 +2,7 @@
 
 volumes=(
   "vscode-extensions"
+  "thunder-client"
 )
 
 for v in "${volumes[@]}"; do
