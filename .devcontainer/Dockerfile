@@ -1,5 +1,5 @@
-ARG VARIANT
-ARG FLAVOUR
+ARG VARIANT=16-bullseye
+ARG FLAVOUR=typescript
 FROM mcr.microsoft.com/vscode/devcontainers/${FLAVOUR}-node:0-${VARIANT}
 
 # Install Docker CE CLI.
@@ -17,7 +17,15 @@ RUN apt-get update && \
 # Install Docker Compose.
 RUN export LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/compose/releases/latest" | grep -o -P '(?<="tag_name": ").+(?=")') && \
   curl -sSL "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
-  chmod +x /usr/local/bin/docker-compose
+  chmod +x /usr/local/bin/docker-compose && \
+  # And as a plugin invoked with 'docker compose'
+  export DOCKER_PLUGINS="${HOME}/.docker/cli-plugins" && \
+  mkdir -p ${DOCKER_PLUGINS} && \
+  curl -sSL "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o ${DOCKER_PLUGINS}/docker-compose && \
+  chmod +x ${DOCKER_PLUGINS}/docker-compose
+
+# [Optional] Install Homebrew (will not work on M1 Macs)
+# RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # [Optional] install additional OS packages.
 RUN apt-get update && \

@@ -1,6 +1,6 @@
 {
   "name": "Workspace",
-  "dockerComposeFile": "docker-compose.devcontainer.yml",
+  "dockerComposeFile": "docker-compose.yml",
   "service": "vscode",
   "shutdownAction": "stopCompose",
   "workspaceFolder": "/workspace",
@@ -9,14 +9,17 @@
   "postCreateCommand": "",
   "postStartCommand": "",
   "settings": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
   "extensions": [
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
     "eamodio.gitlens",
     "editorconfig.editorconfig",
-    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "ms-azuretools.vscode-docker"
+    "ms-azuretools.vscode-docker",
+    "orta.vscode-jest",
+    "rangav.vscode-thunder-client",
+    "tamasfe.even-better-toml"
   ]
 }
